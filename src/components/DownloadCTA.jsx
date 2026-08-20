@@ -1,4 +1,4 @@
-﻿import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function DownloadCTA() {
   const [ref, isVisible] = useScrollAnimation();
@@ -19,7 +19,12 @@ export default function DownloadCTA() {
             completely offline — your personal Scripture companion awaits.
           </p>
 
-          <a href="/downloads/shephema.apk" className="download-cta-button" download="shephema-v1.0.0.apk">
+          <a
+            href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/shephema.apk"
+            className="download-cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             ⬇ Download for Android
           </a>
 

@@ -1,4 +1,4 @@
-﻿export default function Hero() {
+export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="container">
@@ -15,7 +15,12 @@
             the R.R.M.A. method, complete KJV Bible, and daily streak encouragement.
           </p>
           <div className="hero-actions">
-            <a href="/downloads/shephema.apk" className="btn btn-primary btn-large" download="shephema-v1.0.0.apk">
+            <a
+              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/shephema.apk"
+              className="btn btn-primary btn-large"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               ⬇ Download APK
             </a>
             <span className="hero-version">v1.0.0 • Android</span>
