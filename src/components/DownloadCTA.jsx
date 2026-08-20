@@ -20,7 +20,7 @@ export default function DownloadCTA() {
           </p>
 
           <a
-            href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/shephema.apk"
+            href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.1/Shephema-v1.0.1.apk"
             className="download-cta-button"
             target="_blank"
             rel="noopener noreferrer"
@@ -29,9 +29,9 @@ export default function DownloadCTA() {
           </a>
 
           <div className="download-cta-info">
-            <span>📦 v1.0.0</span>
+            <span>📦 v1.0.1</span>
             <span>📱 Android 8.0+</span>
-            <span>💾 ~101 MB (Offline Bible Included)</span>
+            <span>💾 ~108 MB (Offline Bible Included)</span>
           </div>
 
           <div className="download-cta-features">

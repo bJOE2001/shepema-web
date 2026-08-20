@@ -16,14 +16,14 @@ export default function Hero() {
           </p>
           <div className="hero-actions">
             <a
-              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/shephema.apk"
+              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.1/Shephema-v1.0.1.apk"
               className="btn btn-primary btn-large"
               target="_blank"
               rel="noopener noreferrer"
             >
               ⬇ Download APK
             </a>
-            <span className="hero-version">v1.0.0 • Android</span>
+            <span className="hero-version">v1.0.1 • Android</span>
           </div>
           <div className="hero-badges">
             <span className="badge">✨ 100% Free</span>
