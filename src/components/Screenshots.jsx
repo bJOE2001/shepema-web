@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useEffect } from 'react';
+﻿import { useState, useRef, useEffect, useCallback } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const screenshots = [
@@ -12,33 +12,81 @@ const screenshots = [
 
 export default function Screenshots() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const trackRef = useRef(null);
   const [sectionRef, isVisible] = useScrollAnimation();
 
+  const scrollTo = useCallback((index) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const slides = track.querySelectorAll('.screenshot-slide');
+    if (slides[index]) {
+      const slide = slides[index];
+      const targetScroll = slide.offsetLeft - (track.offsetWidth - slide.offsetWidth) / 2;
+      track.scrollTo({ left: Math.max(0, targetScroll), behavior: 'smooth' });
+    }
+    setActiveIndex(index);
+  }, []);
+
+  const nextSlide = useCallback(() => {
+    setActiveIndex((prev) => {
+      const next = (prev + 1) % screenshots.length;
+      scrollTo(next);
+      return next;
+    });
+  }, [scrollTo]);
+
+  const prevSlide = useCallback(() => {
+    setActiveIndex((prev) => {
+      const prevIdx = prev === 0 ? screenshots.length - 1 : prev - 1;
+      scrollTo(prevIdx);
+      return prevIdx;
+    });
+  }, [scrollTo]);
+
+  // Automated Autoplay: shifts every 3.2s when not hovered
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [isPaused, nextSlide]);
+
+  // Sync active dot on manual scroll
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
+    let timeout;
     const handleScroll = () => {
-      const scrollLeft = track.scrollLeft;
-      const slideWidth = track.querySelector('.screenshot-slide')?.offsetWidth || 260;
-      const gap = 32;
-      const index = Math.round(scrollLeft / (slideWidth + gap));
-      setActiveIndex(Math.min(Math.max(0, index), screenshots.length - 1));
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        const slides = track.querySelectorAll('.screenshot-slide');
+        const trackCenter = track.scrollLeft + track.offsetWidth / 2;
+        let closestIndex = 0;
+        let minDistance = Infinity;
+
+        slides.forEach((slide, idx) => {
+          const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+          const distance = Math.abs(trackCenter - slideCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestIndex = idx;
+          }
+        });
+        setActiveIndex(closestIndex);
+      }, 60);
     };
 
     track.addEventListener('scroll', handleScroll, { passive: true });
-    return () => track.removeEventListener('scroll', handleScroll);
+    return () => {
+      track.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeout);
+    };
   }, []);
-
-  const scrollTo = (index) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const slideWidth = track.querySelector('.screenshot-slide')?.offsetWidth || 260;
-    const gap = 32;
-    track.scrollTo({ left: index * (slideWidth + gap), behavior: 'smooth' });
-    setActiveIndex(index);
-  };
 
   return (
     <section className="screenshots section" id="screenshots" ref={sectionRef}>
@@ -49,10 +97,28 @@ export default function Screenshots() {
         </p>
       </div>
 
-      <div className={`screenshots-wrapper fade-in-section ${isVisible ? 'is-visible' : ''}`}>
+      <div
+        className={`screenshots-wrapper fade-in-section ${isVisible ? 'is-visible' : ''}`}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+      >
+        <button
+          className="screenshots-arrow screenshots-arrow--prev"
+          onClick={prevSlide}
+          aria-label="Previous screenshot"
+        >
+          ‹
+        </button>
+
         <div className="screenshots-track" ref={trackRef}>
           {screenshots.map((shot, i) => (
-            <div key={i} className="screenshot-slide">
+            <div
+              key={i}
+              className={`screenshot-slide ${i === activeIndex ? 'is-active' : ''}`}
+              onClick={() => scrollTo(i)}
+            >
               <div className="screenshot-frame">
                 <img src={shot.src} alt={shot.caption} loading="lazy" />
               </div>
@@ -60,6 +126,14 @@ export default function Screenshots() {
             </div>
           ))}
         </div>
+
+        <button
+          className="screenshots-arrow screenshots-arrow--next"
+          onClick={nextSlide}
+          aria-label="Next screenshot"
+        >
+          ›
+        </button>
 
         <div className="screenshots-dots">
           {screenshots.map((_, i) => (

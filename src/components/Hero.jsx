@@ -15,7 +15,7 @@
             the R.R.M.A. method, complete KJV Bible, and daily streak encouragement.
           </p>
           <div className="hero-actions">
-            <a href="/downloads/shephema.apk" className="btn btn-primary btn-large" download>
+            <a href="/downloads/shephema.apk" className="btn btn-primary btn-large" download="shephema-v1.0.0.apk">
               ⬇ Download APK
             </a>
             <span className="hero-version">v1.0.0 • Android</span>

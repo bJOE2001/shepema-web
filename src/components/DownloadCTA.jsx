@@ -19,14 +19,14 @@ export default function DownloadCTA() {
             completely offline — your personal Scripture companion awaits.
           </p>
 
-          <a href="/downloads/shephema.apk" className="download-cta-button" download>
+          <a href="/downloads/shephema.apk" className="download-cta-button" download="shephema-v1.0.0.apk">
             ⬇ Download for Android
           </a>
 
           <div className="download-cta-info">
             <span>📦 v1.0.0</span>
             <span>📱 Android 8.0+</span>
-            <span>💾 ~50 MB</span>
+            <span>💾 ~101 MB (Offline Bible Included)</span>
           </div>
 
           <div className="download-cta-features">
