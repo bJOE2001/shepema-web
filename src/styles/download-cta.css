@@ -1,0 +1,133 @@
+﻿/* ============================================
+   Download CTA Section
+   ============================================ */
+
+.download-cta {
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 50%, #1B4D1B 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative pattern overlay */
+.download-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.download-cta .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.download-cta-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  margin: 0 auto var(--space-xl);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.download-cta h2 {
+  color: white;
+  font-size: var(--fs-4xl);
+  margin-bottom: var(--space-md);
+}
+
+.download-cta h2::after {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.download-cta-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--fs-lg);
+  max-width: 550px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.7;
+}
+
+.download-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-3xl);
+  background: white;
+  color: var(--brand-green);
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  border-radius: var(--radius-xl);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-normal) var(--ease-out);
+  text-decoration: none;
+}
+
+.download-cta-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+.download-cta-button:active {
+  transform: translateY(0) scale(1);
+}
+
+.download-cta-info {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.download-cta-info span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--fs-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.download-cta-features {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.download-cta-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-xl);
+  color: white;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .download-cta h2 {
+    font-size: var(--fs-2xl);
+  }
+
+  .download-cta-button {
+    padding: var(--space-md) var(--space-2xl);
+    font-size: var(--fs-base);
+  }
+}

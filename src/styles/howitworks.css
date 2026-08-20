@@ -1,0 +1,286 @@
+﻿/* ============================================
+   How It Works Section (R.R.M.A.)
+   ============================================ */
+
+.how-it-works {
+  background: var(--section-alt-bg);
+  position: relative;
+}
+
+.how-it-works .container {
+  position: relative;
+  z-index: 1;
+}
+
+.rrma-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.rrma-steps {
+  position: relative;
+  padding-left: var(--space-3xl);
+}
+
+/* Vertical connecting line */
+.rrma-steps::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  bottom: 30px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--tape-rhema),
+    var(--tape-reflection),
+    var(--tape-motivation),
+    var(--tape-application)
+  );
+  border-radius: 1px;
+}
+
+.rrma-step {
+  position: relative;
+  padding: var(--space-xl) 0;
+}
+
+.rrma-step + .rrma-step {
+  margin-top: var(--space-md);
+}
+
+/* Step dot on the timeline */
+.rrma-dot {
+  position: absolute;
+  left: calc(-1 * var(--space-3xl) - 1px);
+  top: var(--space-xl);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: white;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--section-alt-bg);
+}
+
+.rrma-step--rhema .rrma-dot { background: var(--tape-rhema); }
+.rrma-step--reflection .rrma-dot { background: var(--tape-reflection); }
+.rrma-step--motivation .rrma-dot { background: var(--tape-motivation); }
+.rrma-step--application .rrma-dot { background: var(--tape-application); }
+
+.rrma-step h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-xs);
+}
+
+.rrma-step--rhema h3 { color: var(--tape-rhema); }
+.rrma-step--reflection h3 { color: var(--tape-reflection); }
+.rrma-step--motivation h3 { color: var(--tape-motivation); }
+.rrma-step--application h3 { color: var(--tape-application); }
+
+.rrma-step .rrma-label {
+  font-family: var(--font-handwriting);
+  font-size: var(--fs-md);
+  color: var(--ink-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.rrma-step p {
+  font-size: var(--fs-sm);
+  color: var(--ink-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================
+   Custom Mascot Scene & Background (R.R.M.A.)
+   ============================================ */
+
+.rrma-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.rrma-mascot-scene {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-xl) var(--space-md);
+  animation: float 5.5s ease-in-out infinite;
+}
+
+/* Elegant Architectural Arch Backdrop */
+.rrma-backdrop-arch {
+  position: absolute;
+  top: 15px;
+  width: 360px;
+  height: 400px;
+  border-radius: 180px 180px 60px 60px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 247, 242, 0.8) 60%,
+    rgba(245, 240, 234, 0.3) 100%
+  );
+  border: 2px solid rgba(212, 168, 75, 0.28);
+  box-shadow:
+    0 18px 36px rgba(44, 37, 32, 0.06),
+    inset 0 0 25px rgba(255, 255, 255, 0.9);
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Multi-colored R.R.M.A. Ribbon Aura Glow */
+.rrma-backdrop-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 260px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(
+    circle,
+    rgba(196, 98, 70, 0.15) 0%,
+    rgba(91, 140, 90, 0.15) 35%,
+    rgba(212, 168, 75, 0.15) 65%,
+    transparent 80%
+  );
+  filter: blur(16px);
+}
+
+.rrma-backdrop-ring {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  height: 290px;
+  border-radius: var(--radius-full);
+  border: 1px dashed rgba(212, 168, 75, 0.3);
+}
+
+/* Floating Guided Journaling Badge */
+.rrma-floating-pill {
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-handwriting);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--ink-primary);
+  animation: float 4.5s ease-in-out infinite reverse;
+}
+
+.rrma-floating-pill .pill-icon {
+  font-size: 1.1rem;
+}
+
+/* Ambient Sparkles */
+.rrma-sparkle {
+  position: absolute;
+  color: var(--brand-gold);
+  font-size: 1.25rem;
+  z-index: 1;
+  pointer-events: none;
+  animation: pulse 3.5s ease-in-out infinite;
+}
+
+.rrma-sparkle--1 {
+  top: 20px;
+  left: 15px;
+  font-size: 1.5rem;
+  animation-delay: 0.3s;
+}
+
+.rrma-sparkle--2 {
+  bottom: 60px;
+  right: 15px;
+  font-size: 1.6rem;
+  animation-delay: 1.2s;
+}
+
+/* Transparent Writing Mascot Image */
+.rrma-mascot-img {
+  position: relative;
+  z-index: 2;
+  width: 380px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 15px 28px rgba(44, 37, 32, 0.1));
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .rrma-layout {
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-2xl);
+  }
+
+  .rrma-mascot-scene {
+    max-width: 340px;
+  }
+
+  .rrma-backdrop-arch {
+    width: 300px;
+    height: 340px;
+  }
+
+  .rrma-mascot-img {
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rrma-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rrma-visual {
+    order: -1;
+  }
+
+  .rrma-mascot-scene {
+    max-width: 300px;
+    margin: 0 auto var(--space-xl);
+  }
+
+  .rrma-backdrop-arch {
+    width: 270px;
+    height: 310px;
+  }
+
+  .rrma-mascot-img {
+    width: 270px;
+  }
+
+  .rrma-floating-pill {
+    top: 15px;
+    right: 0;
+    font-size: var(--fs-sm);
+  }
+}

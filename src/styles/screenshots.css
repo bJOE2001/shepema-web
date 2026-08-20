@@ -1,0 +1,110 @@
+﻿/* ============================================
+   Screenshots Section
+   ============================================ */
+
+.screenshots {
+  background: var(--paper-bg);
+  overflow: hidden;
+}
+
+.screenshots-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.screenshots-track {
+  display: flex;
+  gap: var(--space-xl);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-xl) var(--space-md);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.screenshots-track::-webkit-scrollbar {
+  display: none;
+}
+
+.screenshot-slide {
+  flex: 0 0 250px;
+  scroll-snap-align: center;
+  position: relative;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.screenshot-slide:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.screenshot-frame {
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: 8px;
+  border: 1px solid var(--paper-line);
+  box-shadow: 0 12px 35px rgba(44, 37, 32, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.screenshot-slide:hover .screenshot-frame {
+  box-shadow: 0 18px 45px rgba(58, 125, 58, 0.15);
+  border-color: rgba(58, 125, 58, 0.3);
+}
+
+.screenshot-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+.screenshot-caption {
+  text-align: center;
+  margin-top: var(--space-md);
+  font-family: var(--font-handwriting);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+/* Navigation dots */
+.screenshots-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+
+.screenshots-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--paper-line);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  padding: 0;
+}
+
+.screenshots-dot.active {
+  background: var(--brand-green);
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .screenshot-slide {
+    flex: 0 0 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .screenshot-slide {
+    flex: 0 0 195px;
+  }
+}
