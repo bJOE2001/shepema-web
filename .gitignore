@@ -26,8 +26,10 @@ dist-ssr
 # Binaries & APK Downloads (Use GitHub Releases for large files)
 *.apk
 *.aab
+*.zip
 public/downloads/*.apk
 public/downloads/*.aab
+public/downloads/*.zip
 !public/downloads/.gitkeep
 
 # Python cache
