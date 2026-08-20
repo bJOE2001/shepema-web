@@ -1,0 +1,17 @@
+# Ignore large local downloads (hosted on GitHub Releases)
+public/downloads/*.apk
+public/downloads/*.aab
+public/downloads/*.zip
+*.apk
+*.aab
+*.zip
+
+# Ignore build and cache
+node_modules
+dist
+.git
+.vercel
+
+# Python helper scripts
+*.py
+__pycache__
