@@ -4,10 +4,12 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const screenshots = [
   { src: '/images/screenshot-1.jpg', caption: 'Daily Dashboard & Streaks' },
   { src: '/images/screenshot-2.jpg', caption: 'Holy Scripture Reader' },
-  { src: '/images/screenshot-3.jpg', caption: 'Devotional Journal History' },
-  { src: '/images/screenshot-4.jpg', caption: 'R.R.M.A. Guided Reflection' },
-  { src: '/images/screenshot-5.jpg', caption: 'Aesthetic Shareable Cards' },
-  { src: '/images/screenshot-6.jpg', caption: 'Habit Calendar & Progress' },
+  { src: '/images/screenshot-3.jpg', caption: 'Offline Bible Versions' },
+  { src: '/images/screenshot-4.jpg', caption: 'Devotional Journal Book' },
+  { src: '/images/screenshot-5.jpg', caption: 'R.R.M.A. Reflection Folio' },
+  { src: '/images/screenshot-6.jpg', caption: 'Aesthetic Shareable Cards' },
+  { src: '/images/screenshot-7.jpg', caption: 'Habit Calendar & Progress' },
+  { src: '/images/screenshot-8.jpg', caption: 'Daily Habit Reminders' },
 ];
 
 export default function Screenshots() {
