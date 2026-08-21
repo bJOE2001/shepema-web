@@ -101,9 +101,9 @@ export default function InstallGuide() {
             </div>
 
             <div className="troubleshoot-item">
-              <h4>📦 File size & Offline Bible</h4>
+              <h4>📦 File size & Offline Bibles</h4>
               <p>
-                The download size (~108 MB) includes the complete, full King James Version (KJV) Bible bundled offline, so you never need an active internet connection to read Scripture.
+                Shepema is built for offline devotion. You can download and store multiple Bible versions directly onto your device to read anytime without an internet connection.
               </p>
             </div>
 

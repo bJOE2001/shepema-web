@@ -1,10 +1,10 @@
-﻿import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const features = [
   {
     icon: '📖',
-    title: 'Scripture Reader',
-    description: 'Complete King James Version Bible with fast book, chapter, and verse navigation. Highlight and bookmark your favorite passages.',
+    title: 'Multi-Version Scripture Reader',
+    description: 'Download multiple Bible translations to read completely offline. Enjoy fast book, chapter, and verse navigation, highlighting, and bookmarks.',
     color: 'rhema',
   },
   {

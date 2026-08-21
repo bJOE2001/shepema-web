@@ -43,7 +43,7 @@ export default function DownloadCTA() {
           <div className="download-cta-info">
             <span>📦 v1.0.0</span>
             <span>📱 Android 8.0+</span>
-            <span>💾 ~108 MB (Offline Bible Included)</span>
+            <span>💾 ~108 MB (Offline Bibles Available)</span>
           </div>
 
           <div className="download-cta-features">

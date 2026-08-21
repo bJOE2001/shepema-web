@@ -12,7 +12,7 @@ export default function Hero() {
           <p className="hero-description">
             Meet <strong>Shepema</strong> — your friendly devotional buddy. An aesthetic
             journaling and Scripture reader app crafted to guide your quiet time with
-            the R.R.M.A. method, complete KJV Bible, and daily streak encouragement.
+            the R.R.M.A. method, downloadable offline Bible versions, and daily streak encouragement.
           </p>
           <div className="hero-actions">
             <a

@@ -9,7 +9,7 @@ Welcome to the **Shepema** installation guide! Shepema is a beautiful, offline d
 | Requirement | Details |
 |---|---|
 | **Operating System** | Android 8.0 (Oreo) or higher (Android 8.0 - 15+) |
-| **Storage Space** | ~110 MB free space (Includes complete offline KJV Bible) |
+| **Storage Space** | ~110 MB free space (Supports downloadable offline Bible versions) |
 | **Internet Connection** | Only needed once to download the APK. 100% offline afterwards! |
 | **Permissions** | None required (No camera, microphone, contacts, or location access needed) |
 
@@ -60,7 +60,7 @@ Google Play Protect scans applications. Because Shepema is distributed directly 
 
 ### Q2: Why is the APK file size ~108 MB?
 **Answer:**
-Shepema is built to work **100% offline**. It bundles the entire King James Version (KJV) Holy Bible with fast search indexing and SQLite databases directly inside the application, so you can read and journal even in airplane mode with no internet.
+Shepema is built to work **100% offline**. It includes local databases and fast search indexing directly inside the app, allowing you to download and manage multiple Bible versions for complete offline reading and journaling anywhere.
 
 ### Q3: How do I update to future versions?
 **Answer:**
