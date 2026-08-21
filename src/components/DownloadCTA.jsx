@@ -47,7 +47,7 @@ export default function DownloadCTA() {
           </div>
 
           <div className="download-cta-features">
-            <span className="download-cta-feature">✨ Free Forever</span>
+            <span className="download-cta-feature">✨ Free</span>
             <span className="download-cta-feature">🚫 No Ads</span>
             <span className="download-cta-feature">📴 100% Offline</span>
             <span className="download-cta-feature">🔒 Private & Secure</span>

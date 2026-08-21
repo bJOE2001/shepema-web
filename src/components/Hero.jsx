@@ -36,7 +36,7 @@ export default function Hero() {
             <span className="hero-version">v1.0.0 • Android</span>
           </div>
           <div className="hero-badges">
-            <span className="badge">✨ 100% Free</span>
+            <span className="badge">✨ Free</span>
             <span className="badge">🚫 No Ads</span>
             <span className="badge">📴 Works Offline</span>
           </div>

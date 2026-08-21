@@ -67,7 +67,7 @@ export default function About() {
               </div>
               <div className="about-badge">
                 <span className="about-badge-icon">💚</span>
-                <span>Free Forever</span>
+                <span>Free</span>
               </div>
             </div>
           </div>
