@@ -10,13 +10,13 @@ export default function Hero() {
             Guided by <em>God's Word</em>
           </h1>
           <p className="hero-description">
-            Meet <strong>Shephema</strong> — your friendly devotional buddy. An aesthetic
+            Meet <strong>Shepema</strong> — your friendly devotional buddy. An aesthetic
             journaling and Scripture reader app crafted to guide your quiet time with
             the R.R.M.A. method, complete KJV Bible, and daily streak encouragement.
           </p>
           <div className="hero-actions">
             <a
-              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shephema-v1.0.0.apk"
+              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shepema-v1.0.0.apk"
               className="btn btn-primary btn-large"
               target="_blank"
               rel="noopener noreferrer"
@@ -64,7 +64,7 @@ export default function Hero() {
             {/* The transparent cozy reading mascot */}
             <img
               src="/images/mascot-cozy-reading-transparent.png"
-              alt="Shephema — your devotional buddy cozy reading the Holy Bible"
+              alt="Shepema — your devotional buddy cozy reading the Holy Bible"
               className="hero-mascot-cozy"
             />
           </div>

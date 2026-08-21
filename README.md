@@ -1,6 +1,6 @@
-# Shephema Web 🐑📖
+# Shepema Web 🐑📖
 
-> Official landing page & web showcase for **Shephema — Your Devotional Buddy | Scripture Reader & Prayer Journal**.
+> Official landing page & web showcase for **Shepema — Your Devotional Buddy | Scripture Reader & Prayer Journal**.
 
 ---
 
@@ -21,7 +21,7 @@
 
 ## 🌟 About The Project
 
-**Shephema** is a personal devotional buddy app designed for Christians to cultivate a consistent daily walk with God. This repository contains the modern, responsive web landing page showcasing features such as:
+**Shepema** is a personal devotional buddy app designed for Christians to cultivate a consistent daily walk with God. This repository contains the modern, responsive web landing page showcasing features such as:
 - **R.R.M.A. Method**: Read, Reflect, Meditate, Apply devotional journaling.
 - **KJV Bible Reader**: Built-in Scripture reader with offline capabilities.
 - **Streak & Habit Tracking**: Daily devotion tracking and milestones.
@@ -137,7 +137,7 @@ shepema-web/
 │   └── favicon.ico
 ├── src/                     # React source code
 │   ├── components/          # Reusable UI sections & components
-│   │   ├── About.jsx        # About Shephema section
+│   │   ├── About.jsx        # About Shepema section
 │   │   ├── DownloadCTA.jsx  # Call-to-action download banner
 │   │   ├── Features.jsx     # App feature highlights (R.R.M.A, KJV Bible, etc.)
 │   │   ├── Footer.jsx       # Footer links & copyright

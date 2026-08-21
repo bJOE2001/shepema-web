@@ -1,4 +1,4 @@
-﻿import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function About() {
   const [ref, isVisible] = useScrollAnimation();
@@ -30,7 +30,7 @@ export default function About() {
               {/* Transparent Mascot Holding Bible */}
               <img
                 src="/images/mascot-holding-bible-transparent.png"
-                alt="Shephema mascot holding the Holy Bible"
+                alt="Shepema mascot holding the Holy Bible"
                 className="about-mascot-img"
                 loading="lazy"
               />
@@ -38,14 +38,14 @@ export default function About() {
           </div>
 
           <div className="about-content">
-            <h2>About Shephema</h2>
+            <h2>About Shepema</h2>
             <p className="about-highlight">
               "Your faithful devotional buddy — keeping you company in God's Word every single day."
             </p>
             <p className="about-text">
-              Shephema (from <strong>"Sheep"</strong> + <strong>"Rhema"</strong> — God's living Word) is designed 
+              Shepema (from <strong>"Sheep"</strong> + <strong>"Rhema"</strong> — God's living Word) is designed 
               to be the warm, encouraging <strong>devotional buddy</strong> for every believer. Whether you are doing morning 
-              quiet time, reflecting on a verse during lunch, or unwinding at night with prayer, Shephema is right there with you.
+              quiet time, reflecting on a verse during lunch, or unwinding at night with prayer, Shepema is right there with you.
             </p>
             <p className="about-text">
               Built with a classic paper notebook feel and powered 100% offline, your devotions and reflections stay 

@@ -23,8 +23,8 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
         <div className="container">
           <a href="#" className="nav-brand" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-            <img src="/images/app-icon.jpg" alt="Shephema" />
-            <span>Shephema</span>
+            <img src="/images/app-icon.jpg" alt="Shepema" />
+            <span>Shepema</span>
           </a>
 
           <div className={`nav-links ${menuOpen ? 'open' : ''}`}>

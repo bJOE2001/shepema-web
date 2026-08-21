@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const screenshots = [
@@ -91,7 +91,7 @@ export default function Screenshots() {
   return (
     <section className="screenshots section" id="screenshots" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">See Shephema in Action</h2>
+        <h2 className="section-title">See Shepema in Action</h2>
         <p className="section-subtitle">
           Explore the real, beautifully crafted interface built for your daily devotional walk.
         </p>

@@ -1,4 +1,4 @@
-﻿import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const steps = [
   {
@@ -76,7 +76,7 @@ export default function HowItWorks() {
               {/* Transparent Writing Mascot */}
               <img
                 src="/images/mascot-writing-journal-transparent.png"
-                alt="Shephema mascot writing devotional reflections in notebook"
+                alt="Shepema mascot writing devotional reflections in notebook"
                 className="rrma-mascot-img"
                 loading="lazy"
               />

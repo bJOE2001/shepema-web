@@ -9,11 +9,11 @@ export default function DownloadCTA() {
         <div className={`fade-in-section ${isVisible ? 'is-visible' : ''}`}>
           <img
             src="/images/app-icon.jpg"
-            alt="Shephema app icon"
+            alt="Shepema app icon"
             className="download-cta-icon"
           />
 
-          <h2 className="section-title">Download Shephema</h2>
+          <h2 className="section-title">Download Shepema</h2>
           <p className="download-cta-subtitle">
             Start your devotional journey today. Beautiful, free, and
             completely offline — your personal Scripture companion awaits.
@@ -21,7 +21,7 @@ export default function DownloadCTA() {
 
           <div className="download-cta-actions">
             <a
-              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shephema-v1.0.0.apk"
+              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shepema-v1.0.0.apk"
               className="download-cta-button"
               target="_blank"
               rel="noopener noreferrer"

@@ -7,8 +7,8 @@ export default function Footer() {
         <div className="footer-content">
           <div>
             <div className="footer-brand">
-              <img src="/images/app-icon.jpg" alt="Shephema" />
-              <span>Shephema</span>
+              <img src="/images/app-icon.jpg" alt="Shepema" />
+              <span>Shepema</span>
             </div>
             <p className="footer-tagline">
               Guided by God's Word.<br />
@@ -35,7 +35,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span className="footer-copyright">
-            &copy; {year} Shephema. All rights reserved.
+            &copy; {year} Shepema. All rights reserved.
           </span>
           <span className="footer-made-with">
             Made with <span>❤️</span> and faith

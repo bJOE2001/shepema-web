@@ -6,7 +6,7 @@ const installSteps = [
     icon: '📥',
     title: 'Download the APK',
     description:
-      'Tap the Download APK button on this website to get the latest Shephema-v1.0.0.apk package directly to your Android device.',
+      'Tap the Download APK button on this website to get the latest Shepema-v1.0.0.apk package directly to your Android device.',
     tip: 'If Chrome warns "File might be harmful", tap "Download anyway".',
     badge: 'Step 1',
     theme: 'rhema',
@@ -36,7 +36,7 @@ const installSteps = [
     icon: '✨',
     title: 'Install & Launch',
     description:
-      'Press "Install" and wait a few seconds. Once finished, tap "Open" to start your peaceful daily quiet time with Shephema!',
+      'Press "Install" and wait a few seconds. Once finished, tap "Open" to start your peaceful daily quiet time with Shepema!',
     tip: 'Ready to use offline anytime, anywhere with no ads.',
     badge: 'Step 4',
     theme: 'application',
@@ -49,7 +49,7 @@ export default function InstallGuide() {
   return (
     <section className="install-guide section" id="install-guide">
       <div className="container">
-        <h2 className="section-title">How to Install Shephema</h2>
+        <h2 className="section-title">How to Install Shepema</h2>
         <p className="section-subtitle">
           Getting started is simple and takes less than a minute. Follow these 4 easy steps to install the Android APK on your phone or tablet.
         </p>
@@ -96,7 +96,7 @@ export default function InstallGuide() {
               <p>
                 If Play Protect displays <em>"Unrecognized app"</em>, simply tap{' '}
                 <strong>"More details"</strong> and then select{' '}
-                <strong>"Install anyway"</strong>. Shephema is 100% clean and contains no telemetry or ads.
+                <strong>"Install anyway"</strong>. Shepema is 100% clean and contains no telemetry or ads.
               </p>
             </div>
 
@@ -124,11 +124,11 @@ export default function InstallGuide() {
 
           <div className="install-cta-banner">
             <div>
-              <p className="banner-title">Ready to install Shephema v1.0.0?</p>
+              <p className="banner-title">Ready to install Shepema v1.0.0?</p>
               <p className="banner-subtitle">Download the APK directly to your Android device.</p>
             </div>
             <a
-              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shephema-v1.0.0.apk"
+              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shepema-v1.0.0.apk"
               className="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
