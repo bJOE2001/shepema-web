@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    Download CTA Section
    ============================================ */
 
@@ -55,6 +55,14 @@
   line-height: 1.7;
 }
 
+.download-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin: 0 auto;
+}
+
 .download-cta-button {
   display: inline-flex;
   align-items: center;
@@ -80,6 +88,24 @@
 
 .download-cta-button:active {
   transform: translateY(0) scale(1);
+}
+
+.download-cta-guide-btn {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.download-cta-guide-btn:hover {
+  color: white;
+  transform: translateY(-1px);
 }
 
 .download-cta-info {

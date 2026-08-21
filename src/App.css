@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    App Style Imports
    ============================================ */
 
@@ -10,6 +10,7 @@
 @import './styles/features.css';
 @import './styles/screenshots.css';
 @import './styles/howitworks.css';
+@import './styles/install-guide.css';
 @import './styles/about.css';
 @import './styles/download-cta.css';
 @import './styles/footer.css';

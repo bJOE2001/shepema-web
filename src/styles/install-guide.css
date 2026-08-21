@@ -1,0 +1,277 @@
+/* ============================================
+   Installation Guide Section
+   ============================================ */
+
+.install-guide {
+  background: var(--paper-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background accent grid */
+.install-guide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(212, 168, 75, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(58, 125, 58, 0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.install-guide .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- 4 Steps Grid ---- */
+.install-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+  position: relative;
+}
+
+.install-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  border-top: 4px solid var(--paper-line);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.install-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ribbon Color Accents */
+.install-card--rhema {
+  border-top-color: var(--tape-rhema);
+}
+.install-card--rhema .install-card-number {
+  background: rgba(196, 98, 70, 0.12);
+  color: var(--tape-rhema);
+}
+
+.install-card--reflection {
+  border-top-color: var(--tape-reflection);
+}
+.install-card--reflection .install-card-number {
+  background: rgba(91, 140, 90, 0.12);
+  color: var(--tape-reflection);
+}
+
+.install-card--motivation {
+  border-top-color: var(--tape-motivation);
+}
+.install-card--motivation .install-card-number {
+  background: rgba(212, 168, 75, 0.15);
+  color: #B38622;
+}
+
+.install-card--application {
+  border-top-color: var(--tape-application);
+}
+.install-card--application .install-card-number {
+  background: rgba(74, 124, 155, 0.12);
+  color: var(--tape-application);
+}
+
+.install-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.install-card-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+}
+
+.install-card-icon {
+  font-size: 2rem;
+}
+
+.install-card-badge {
+  display: inline-block;
+  font-family: var(--font-handwriting);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.install-card-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--ink-primary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+}
+
+.install-card-desc {
+  font-size: var(--fs-sm);
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.install-card-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--chip-bg);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--chip-border);
+  font-size: var(--fs-xs);
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.tip-icon {
+  flex-shrink: 0;
+  font-size: 0.95rem;
+}
+
+/* ---- Troubleshooting Callout Box ---- */
+.install-troubleshoot-box {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-3xl);
+  border: 1px solid var(--paper-line);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.troubleshoot-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.troubleshoot-icon {
+  font-size: 2.5rem;
+  padding: var(--space-sm);
+  background: var(--brand-green-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.troubleshoot-header h3 {
+  font-size: var(--fs-xl);
+  color: var(--ink-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.troubleshoot-header p {
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+}
+
+.troubleshoot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.troubleshoot-item h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  color: var(--ink-primary);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.troubleshoot-item p {
+  font-size: var(--fs-sm);
+  color: var(--ink-secondary);
+  line-height: 1.65;
+}
+
+.troubleshoot-item strong {
+  color: var(--ink-primary);
+}
+
+.troubleshoot-item em {
+  font-style: italic;
+  color: var(--brand-green-dark);
+}
+
+/* Banner Inside Box */
+.install-cta-banner {
+  background: linear-gradient(135deg, var(--section-alt-bg) 0%, #EDE6DC 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  border: 1px solid var(--chip-border);
+}
+
+.banner-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  color: var(--ink-primary);
+  margin-bottom: 2px;
+}
+
+.banner-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--ink-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .install-guide-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .install-troubleshoot-box {
+    padding: var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .install-guide-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .troubleshoot-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .install-cta-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

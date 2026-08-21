@@ -1,9 +1,10 @@
-﻿import './App.css';
+import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Screenshots from './components/Screenshots';
 import HowItWorks from './components/HowItWorks';
+import InstallGuide from './components/InstallGuide';
 import About from './components/About';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
@@ -17,6 +18,7 @@ export default function App() {
         <Features />
         <Screenshots />
         <HowItWorks />
+        <InstallGuide />
         <About />
         <DownloadCTA />
       </main>

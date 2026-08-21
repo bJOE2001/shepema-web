@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,6 +30,7 @@ export default function Navbar() {
           <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
             <a href="#features" onClick={(e) => handleNavClick(e, 'features')}>Features</a>
             <a href="#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')}>How It Works</a>
+            <a href="#install-guide" onClick={(e) => handleNavClick(e, 'install-guide')}>Install Guide</a>
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About</a>
             <a href="#download" className="nav-cta" onClick={(e) => handleNavClick(e, 'download')}>
               Download Now

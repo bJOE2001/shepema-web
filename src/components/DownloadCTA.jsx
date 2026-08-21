@@ -19,17 +19,29 @@ export default function DownloadCTA() {
             completely offline — your personal Scripture companion awaits.
           </p>
 
-          <a
-            href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.1/Shephema-v1.0.1.apk"
-            className="download-cta-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ⬇ Download for Android
-          </a>
+          <div className="download-cta-actions">
+            <a
+              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shephema-v1.0.0.apk"
+              className="download-cta-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ⬇ Download for Android
+            </a>
+            <a
+              href="#install-guide"
+              className="download-cta-guide-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('install-guide')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              📖 View Installation Guide
+            </a>
+          </div>
 
           <div className="download-cta-info">
-            <span>📦 v1.0.1</span>
+            <span>📦 v1.0.0</span>
             <span>📱 Android 8.0+</span>
             <span>💾 ~108 MB (Offline Bible Included)</span>
           </div>

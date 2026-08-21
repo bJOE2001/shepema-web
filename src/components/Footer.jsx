@@ -1,4 +1,4 @@
-﻿export default function Footer() {
+export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
@@ -20,6 +20,7 @@
             <span className="footer-links-title">Quick Links</span>
             <a href="#features">Features</a>
             <a href="#how-it-works">How It Works</a>
+            <a href="#install-guide">Install Guide</a>
             <a href="#about">About</a>
             <a href="#download">Download</a>
           </div>
