@@ -35,15 +35,6 @@ export default function AdminLogin({ onLoginSuccess }) {
     }
   };
 
-  const handleDevBypass = () => {
-    // Allows administrator preview mode when setting up local environment
-    onLoginSuccess({
-      id: 'local-admin',
-      email: email || 'admin@shepema.com',
-      isLocalDev: true,
-    });
-  };
-
   return (
     <div className="admin-modal-overlay" style={{ backdropFilter: 'blur(8px)' }}>
       <div className="admin-modal" style={{ maxWidth: '440px', padding: '2.5rem' }}>
@@ -152,23 +143,6 @@ export default function AdminLogin({ onLoginSuccess }) {
             <ArrowRight size={16} />
           </button>
         </form>
-
-        <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid var(--paper-line)', textAlign: 'center' }}>
-          <button
-            type="button"
-            onClick={handleDevBypass}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--ink-muted)',
-              fontSize: '0.8rem',
-              cursor: 'pointer',
-              textDecoration: 'underline',
-            }}
-          >
-            Developer Mode Bypass (Local Setup Preview)
-          </button>
-        </div>
       </div>
     </div>
   );
