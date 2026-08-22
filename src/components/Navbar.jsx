@@ -29,22 +29,11 @@ export default function Navbar({ onOpenChangelog, onOpenFeedback }) {
 
           <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
             <a href="#features" onClick={(e) => handleNavClick(e, 'features')}>Features</a>
+            <a href="#screenshots" onClick={(e) => handleNavClick(e, 'screenshots')}>Screenshots</a>
             <a href="#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')}>How It Works</a>
             <a href="#install-guide" onClick={(e) => handleNavClick(e, 'install-guide')}>Install Guide</a>
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About</a>
             <a href="#subscribe" onClick={(e) => handleNavClick(e, 'subscribe')}>Get Updates</a>
-            {onOpenFeedback && (
-              <a
-                href="#feedback"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  onOpenFeedback();
-                }}
-              >
-                Feedback
-              </a>
-            )}
             {onOpenChangelog && (
               <a
                 href="#changelog"
@@ -55,6 +44,18 @@ export default function Navbar({ onOpenChangelog, onOpenFeedback }) {
                 }}
               >
                 What's New
+              </a>
+            )}
+            {onOpenFeedback && (
+              <a
+                href="#feedback"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  onOpenFeedback();
+                }}
+              >
+                Feedback
               </a>
             )}
             <a href="#download" className="nav-cta" onClick={(e) => handleNavClick(e, 'download')}>
