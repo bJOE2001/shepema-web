@@ -47,6 +47,24 @@ CREATE TABLE IF NOT EXISTS public.email_campaigns (
     sent_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
+-- 4. Create User Feedbacks Table (Bugs, Feature Requests, General Feedback)
+CREATE TABLE IF NOT EXISTS public.user_feedbacks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    type TEXT NOT NULL DEFAULT 'general' CHECK (type IN ('bug', 'feature', 'general', 'content')),
+    name TEXT,
+    email TEXT,
+    subject TEXT NOT NULL,
+    message TEXT NOT NULL,
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+    app_version TEXT,
+    device_info TEXT,
+    status TEXT NOT NULL DEFAULT 'unread' CHECK (status IN ('unread', 'reviewed', 'in_progress', 'resolved', 'archived')),
+    admin_notes TEXT,
+    created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_feedbacks_status ON public.user_feedbacks (status, type, created_at DESC);
+
 -- 4. Function & Trigger to ensure only one release is marked as latest
 CREATE OR REPLACE FUNCTION handle_latest_release()
 RETURNS TRIGGER AS $$
@@ -81,6 +99,7 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 ALTER TABLE public.app_releases ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.subscribers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.email_campaigns ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_feedbacks ENABLE ROW LEVEL SECURITY;
 
 -- 7. App Releases Policies
 -- Anyone (even anonymous) can view published releases
@@ -132,7 +151,21 @@ CREATE POLICY "Allow auth manage email campaigns"
     USING (true)
     WITH CHECK (true);
 
--- 10. Storage Bucket Setup for APK Releases
+-- 10. User Feedbacks Policies
+-- Anyone can submit feedback or report bugs
+CREATE POLICY "Allow public submit feedback"
+    ON public.user_feedbacks FOR INSERT
+    TO anon, authenticated
+    WITH CHECK (true);
+
+-- Authenticated admins can view, update, or delete feedback
+CREATE POLICY "Allow auth manage feedbacks"
+    ON public.user_feedbacks FOR ALL
+    TO authenticated
+    USING (true)
+    WITH CHECK (true);
+
+-- 11. Storage Bucket Setup for APK Releases
 -- Create 'app-releases' bucket if it doesn't exist
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 VALUES (

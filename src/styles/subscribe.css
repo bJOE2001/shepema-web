@@ -255,6 +255,35 @@
   font-weight: 600;
 }
 
+/* Floating Feedback Button */
+.floating-feedback-btn {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 990;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card-bg, #FFFFFF);
+  color: var(--brand-green-dark, #2D612D);
+  border: 1.5px solid var(--paper-line, #E8E0D4);
+  padding: 0.65rem 1.15rem;
+  border-radius: 24px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(44, 37, 32, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-feedback-btn:hover {
+  transform: translateY(-2px);
+  background: var(--brand-green-light, #EAF3EA);
+  border-color: #C8E6C9;
+  box-shadow: 0 8px 24px rgba(44, 37, 32, 0.16);
+}
+
 @media (max-width: 640px) {
   .subscribe-card {
     padding: 2rem 1.25rem;
@@ -264,5 +293,11 @@
   }
   .subscribe-title {
     font-size: 1.6rem;
+  }
+  .floating-feedback-btn {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.55rem 0.95rem;
+    font-size: 0.8rem;
   }
 }

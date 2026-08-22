@@ -11,7 +11,9 @@ import DownloadCTA from './components/DownloadCTA';
 import SubscribeSection from './components/SubscribeSection';
 import Footer from './components/Footer';
 import ReleaseHistoryModal from './components/ReleaseHistoryModal';
+import FeedbackModal from './components/FeedbackModal';
 import AdminLayout from './components/admin/AdminLayout';
+import { MessageSquare } from 'lucide-react';
 
 export default function App() {
   const [isAdminView, setIsAdminView] = useState(() => {
@@ -21,6 +23,7 @@ export default function App() {
     );
   });
   const [showChangelog, setShowChangelog] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -45,7 +48,10 @@ export default function App() {
 
   return (
     <>
-      <Navbar onOpenChangelog={() => setShowChangelog(true)} />
+      <Navbar
+        onOpenChangelog={() => setShowChangelog(true)}
+        onOpenFeedback={() => setShowFeedback(true)}
+      />
       <main>
         <Hero onOpenChangelog={() => setShowChangelog(true)} />
         <Features />
@@ -58,11 +64,28 @@ export default function App() {
       </main>
       <Footer
         onOpenChangelog={() => setShowChangelog(true)}
+        onOpenFeedback={() => setShowFeedback(true)}
       />
+
+      {/* Floating Feedback Trigger Button */}
+      <button
+        type="button"
+        className="floating-feedback-btn"
+        onClick={() => setShowFeedback(true)}
+        title="Leave Feedback or Report a Bug"
+      >
+        <MessageSquare size={18} />
+        <span>Feedback</span>
+      </button>
 
       <ReleaseHistoryModal
         isOpen={showChangelog}
         onClose={() => setShowChangelog(false)}
+      />
+
+      <FeedbackModal
+        isOpen={showFeedback}
+        onClose={() => setShowFeedback(false)}
       />
     </>
   );

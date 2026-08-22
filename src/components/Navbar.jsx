@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function Navbar({ onOpenChangelog }) {
+export default function Navbar({ onOpenChangelog, onOpenFeedback }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -33,6 +33,18 @@ export default function Navbar({ onOpenChangelog }) {
             <a href="#install-guide" onClick={(e) => handleNavClick(e, 'install-guide')}>Install Guide</a>
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About</a>
             <a href="#subscribe" onClick={(e) => handleNavClick(e, 'subscribe')}>Get Updates</a>
+            {onOpenFeedback && (
+              <a
+                href="#feedback"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  onOpenFeedback();
+                }}
+              >
+                Feedback
+              </a>
+            )}
             {onOpenChangelog && (
               <a
                 href="#changelog"

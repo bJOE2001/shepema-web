@@ -1,4 +1,4 @@
-export default function Footer({ onOpenChangelog }) {
+export default function Footer({ onOpenChangelog, onOpenFeedback }) {
   const year = new Date().getFullYear();
 
   return (
@@ -23,6 +23,18 @@ export default function Footer({ onOpenChangelog }) {
             <a href="#install-guide">Install Guide</a>
             <a href="#about">About</a>
             <a href="#download">Download</a>
+            <a href="#subscribe">Get Updates</a>
+            {onOpenFeedback && (
+              <a
+                href="#feedback"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onOpenFeedback();
+                }}
+              >
+                💬 Feedback & Bugs
+              </a>
+            )}
             {onOpenChangelog && (
               <a
                 href="#changelog"
@@ -34,7 +46,6 @@ export default function Footer({ onOpenChangelog }) {
                 Release Notes
               </a>
             )}
-            <a href="#subscribe">Get Updates</a>
           </div>
 
           <div className="footer-verse">

@@ -4,11 +4,13 @@ import AdminLogin from './AdminLogin';
 import ReleaseManager from './ReleaseManager';
 import EmailBroadcaster from './EmailBroadcaster';
 import SubscriberList from './SubscriberList';
+import FeedbackManager from './FeedbackManager';
 import SetupGuide from './SetupGuide';
 import {
   UploadCloud,
   Mail,
   Users,
+  MessageSquare,
   BookOpen,
   LogOut,
   ExternalLink,
@@ -93,6 +95,14 @@ export default function AdminLayout({ onExitAdmin }) {
             </button>
 
             <button
+              className={`admin-nav-btn ${activeTab === 'feedback' ? 'active' : ''}`}
+              onClick={() => setActiveTab('feedback')}
+            >
+              <MessageSquare size={16} />
+              User Feedback
+            </button>
+
+            <button
               className={`admin-nav-btn ${activeTab === 'setup' ? 'active' : ''}`}
               onClick={() => setActiveTab('setup')}
             >
@@ -135,6 +145,10 @@ export default function AdminLayout({ onExitAdmin }) {
 
         {activeTab === 'subscribers' && (
           <SubscriberList />
+        )}
+
+        {activeTab === 'feedback' && (
+          <FeedbackManager />
         )}
 
         {activeTab === 'setup' && (

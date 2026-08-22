@@ -67,7 +67,25 @@ CREATE TABLE IF NOT EXISTS public.email_campaigns (
     sent_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
--- 4. Single Latest Release Trigger
+-- 4. User Feedbacks Table (Bugs, Features, General)
+CREATE TABLE IF NOT EXISTS public.user_feedbacks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    type TEXT NOT NULL DEFAULT 'general' CHECK (type IN ('bug', 'feature', 'general', 'content')),
+    name TEXT,
+    email TEXT,
+    subject TEXT NOT NULL,
+    message TEXT NOT NULL,
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+    app_version TEXT,
+    device_info TEXT,
+    status TEXT NOT NULL DEFAULT 'unread' CHECK (status IN ('unread', 'reviewed', 'in_progress', 'resolved', 'archived')),
+    admin_notes TEXT,
+    created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_feedbacks_status ON public.user_feedbacks (status, type, created_at DESC);
+
+-- 5. Single Latest Release Trigger
 CREATE OR REPLACE FUNCTION handle_latest_release()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -87,7 +105,7 @@ FOR EACH ROW
 WHEN (NEW.is_latest = true)
 EXECUTE FUNCTION handle_latest_release();
 
--- 5. Atomic RPC function for downloads
+-- 6. Atomic RPC function for downloads
 CREATE OR REPLACE FUNCTION increment_release_downloads(target_release_id UUID)
 RETURNS void AS $$
 BEGIN
@@ -97,19 +115,22 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- 6. Enable RLS
+-- 7. Enable RLS
 ALTER TABLE public.app_releases ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.subscribers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.email_campaigns ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_feedbacks ENABLE ROW LEVEL SECURITY;
 
--- 7. Policies
+-- 8. Policies
 CREATE POLICY "Allow public read published releases" ON public.app_releases FOR SELECT USING (is_published = true);
 CREATE POLICY "Allow auth manage releases" ON public.app_releases FOR ALL TO authenticated USING (true) WITH CHECK (true);
 CREATE POLICY "Allow public subscribe" ON public.subscribers FOR INSERT TO anon, authenticated WITH CHECK (true);
 CREATE POLICY "Allow auth manage subscribers" ON public.subscribers FOR ALL TO authenticated USING (true) WITH CHECK (true);
 CREATE POLICY "Allow auth manage email campaigns" ON public.email_campaigns FOR ALL TO authenticated USING (true) WITH CHECK (true);
+CREATE POLICY "Allow public submit feedback" ON public.user_feedbacks FOR INSERT TO anon, authenticated WITH CHECK (true);
+CREATE POLICY "Allow auth manage feedbacks" ON public.user_feedbacks FOR ALL TO authenticated USING (true) WITH CHECK (true);
 
--- 8. Storage Bucket for APKs
+-- 9. Storage Bucket for APKs
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 VALUES ('app-releases', 'app-releases', true, 524288000, ARRAY['application/vnd.android.package-archive', 'application/octet-stream', 'application/zip'])
 ON CONFLICT (id) DO UPDATE SET public = true, file_size_limit = 524288000;

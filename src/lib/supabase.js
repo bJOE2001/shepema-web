@@ -506,6 +506,104 @@ async function sendDirectResendEmail({
 }
 
 // ==============================================================================
+// User Feedback & Bug Report Helpers
+// ==============================================================================
+
+/**
+ * Submit user feedback or bug report from public web app.
+ */
+export async function submitFeedback({
+  type = 'general',
+  name = '',
+  email = '',
+  subject,
+  message,
+  rating = null,
+  app_version = null,
+  device_info = null,
+}) {
+  if (!supabase) {
+    console.warn('Supabase not configured, logging feedback locally:', { subject, message });
+    return { success: true, localOnly: true };
+  }
+
+  const { data, error } = await supabase
+    .from('user_feedbacks')
+    .insert([
+      {
+        type,
+        name: name?.trim() || null,
+        email: email?.trim() || null,
+        subject: subject.trim(),
+        message: message.trim(),
+        rating: rating || null,
+        app_version: app_version || null,
+        device_info: device_info || (typeof navigator !== 'undefined' ? navigator.userAgent : null),
+        status: 'unread',
+      },
+    ])
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
+/**
+ * Get feedbacks for Admin dashboard.
+ */
+export async function getFeedbacks({ type, status } = {}) {
+  if (!supabase) return [];
+
+  let query = supabase
+    .from('user_feedbacks')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (type && type !== 'all') {
+    query = query.eq('type', type);
+  }
+  if (status && status !== 'all') {
+    query = query.eq('status', status);
+  }
+
+  const { data, error } = await query;
+  if (error) throw error;
+  return data || [];
+}
+
+/**
+ * Update feedback status & notes.
+ */
+export async function updateFeedback(id, updates) {
+  if (!supabase) return;
+
+  const { data, error } = await supabase
+    .from('user_feedbacks')
+    .update(updates)
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
+/**
+ * Delete feedback entry.
+ */
+export async function deleteFeedback(id) {
+  if (!supabase) return;
+
+  const { error } = await supabase
+    .from('user_feedbacks')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+}
+
+// ==============================================================================
 // Utility & Formatting
 // ==============================================================================
 
