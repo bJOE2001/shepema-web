@@ -1,7 +1,9 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useLatestRelease } from '../hooks/useLatestRelease';
 
-export default function DownloadCTA() {
+export default function DownloadCTA({ onOpenChangelog }) {
   const [ref, isVisible] = useScrollAnimation();
+  const { apkUrl, version, fileSize, handleDownloadClick } = useLatestRelease();
 
   return (
     <section className="download-cta section" id="download">
@@ -21,12 +23,13 @@ export default function DownloadCTA() {
 
           <div className="download-cta-actions">
             <a
-              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shepema-v1.0.0.apk"
+              href={apkUrl}
               className="download-cta-button"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleDownloadClick}
             >
-              ⬇ Download for Android
+              ⬇ Download for Android ({version})
             </a>
             <a
               href="#install-guide"
@@ -38,12 +41,21 @@ export default function DownloadCTA() {
             >
               📖 View Installation Guide
             </a>
+            {onOpenChangelog && (
+              <button
+                className="download-cta-guide-btn"
+                onClick={onOpenChangelog}
+                style={{ cursor: 'pointer' }}
+              >
+                ✨ What's New
+              </button>
+            )}
           </div>
 
           <div className="download-cta-info">
-            <span>📦 v1.0.0</span>
+            <span>📦 {version}</span>
             <span>📱 Android 8.0+</span>
-            <span>💾 ~108 MB (Offline Bibles Available)</span>
+            <span>💾 {fileSize} (Offline Bibles Available)</span>
           </div>
 
           <div className="download-cta-features">

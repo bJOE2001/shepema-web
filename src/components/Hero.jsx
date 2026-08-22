@@ -1,4 +1,8 @@
-export default function Hero() {
+import { useLatestRelease } from '../hooks/useLatestRelease';
+
+export default function Hero({ onOpenChangelog }) {
+  const { apkUrl, version, fileSize, handleDownloadClick } = useLatestRelease();
+
   return (
     <section className="hero" id="hero">
       <div className="container">
@@ -16,10 +20,11 @@ export default function Hero() {
           </p>
           <div className="hero-actions">
             <a
-              href="https://github.com/bJOE2001/shepema-web/releases/download/v1.0.0/Shepema-v1.0.0.apk"
+              href={apkUrl}
               className="btn btn-primary btn-large"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleDownloadClick}
             >
               ⬇ Download APK
             </a>
@@ -33,7 +38,16 @@ export default function Hero() {
             >
               📖 Install Guide
             </a>
-            <span className="hero-version">v1.0.0 • Android</span>
+            {onOpenChangelog && (
+              <button
+                className="btn btn-secondary btn-large"
+                style={{ cursor: 'pointer' }}
+                onClick={onOpenChangelog}
+              >
+                ✨ What's New
+              </button>
+            )}
+            <span className="hero-version">{version} • Android • {fileSize}</span>
           </div>
           <div className="hero-badges">
             <span className="badge">✨ Free</span>

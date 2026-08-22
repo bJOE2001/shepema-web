@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -7,22 +8,62 @@ import HowItWorks from './components/HowItWorks';
 import InstallGuide from './components/InstallGuide';
 import About from './components/About';
 import DownloadCTA from './components/DownloadCTA';
+import SubscribeSection from './components/SubscribeSection';
 import Footer from './components/Footer';
+import ReleaseHistoryModal from './components/ReleaseHistoryModal';
+import AdminLayout from './components/admin/AdminLayout';
 
 export default function App() {
+  const [isAdminView, setIsAdminView] = useState(() => {
+    return (
+      window.location.pathname.startsWith('/admin') ||
+      window.location.pathname === '/admin'
+    );
+  });
+  const [showChangelog, setShowChangelog] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setIsAdminView(
+        window.location.pathname.startsWith('/admin') ||
+        window.location.pathname === '/admin'
+      );
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const exitAdmin = () => {
+    window.history.pushState({}, '', '/');
+    setIsAdminView(false);
+  };
+
+  if (isAdminView) {
+    return <AdminLayout onExitAdmin={exitAdmin} />;
+  }
+
   return (
     <>
-      <Navbar />
+      <Navbar onOpenChangelog={() => setShowChangelog(true)} />
       <main>
-        <Hero />
+        <Hero onOpenChangelog={() => setShowChangelog(true)} />
         <Features />
         <Screenshots />
         <HowItWorks />
         <InstallGuide />
         <About />
-        <DownloadCTA />
+        <SubscribeSection />
+        <DownloadCTA onOpenChangelog={() => setShowChangelog(true)} />
       </main>
-      <Footer />
+      <Footer
+        onOpenChangelog={() => setShowChangelog(true)}
+      />
+
+      <ReleaseHistoryModal
+        isOpen={showChangelog}
+        onClose={() => setShowChangelog(false)}
+      />
     </>
   );
 }
