@@ -29,7 +29,7 @@ export default function Navbar({ onOpenChangelog, onOpenFeedback }) {
 
           <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
             <a href="#features" onClick={(e) => handleNavClick(e, 'features')}>Features</a>
-            <a href="#screenshots" onClick={(e) => handleNavClick(e, 'screenshots')}>Screenshots</a>
+            <a href="#screenshots" onClick={(e) => handleNavClick(e, 'screenshots')}>App Preview</a>
             <a href="#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')}>How It Works</a>
             <a href="#install-guide" onClick={(e) => handleNavClick(e, 'install-guide')}>Install Guide</a>
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About</a>

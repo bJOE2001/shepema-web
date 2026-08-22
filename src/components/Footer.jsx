@@ -19,6 +19,7 @@ export default function Footer({ onOpenChangelog, onOpenFeedback }) {
           <div className="footer-links">
             <span className="footer-links-title">Quick Links</span>
             <a href="#features">Features</a>
+            <a href="#screenshots">App Preview</a>
             <a href="#how-it-works">How It Works</a>
             <a href="#install-guide">Install Guide</a>
             <a href="#about">About</a>
